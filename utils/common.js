@@ -86,7 +86,7 @@ function filterValidException(fileException) {
     // if it given an expiry date, validate the date
     if (details.expiry) {
       // if the expiry time is in the future, accept it
-      if (details.expiry > new Date(Date.now()).getTime()) {
+      if (Date.parse(details.expiry) > new Date(Date.now()).getTime()) {
         return acc.concat(numberId);
       }
       // else it is expired, so don't accept it
